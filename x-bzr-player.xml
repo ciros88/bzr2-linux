@@ -642,11 +642,17 @@
         <glob pattern="scn.*"/>
         <glob pattern="*.scn"/>
     </mime-type>
-    <mime-type type="audio/x-sid2">
-        <comment>sid2 file</comment>
+    <mime-type type="audio/x-sidmon">
+        <comment>SIDMon audio</comment>
         <generic-icon name="audio-x-generic"/>
+        <glob pattern="sid.*"/>
+        <glob pattern="sid1.*"/>
         <glob pattern="sid2.*"/>
+        <glob pattern="smn.*"/>
+        <glob pattern="*.sid"/>
+        <glob pattern="*.sid1"/>
         <glob pattern="*.sid2"/>
+        <glob pattern="*.smn"/>
     </mime-type>
     <mime-type type="audio/x-sndh">
         <comment>Atari SoundHeader audio</comment>
