@@ -1,5 +1,2 @@
 .idea/
-aur/*
-!aur/PKGBUILD
-!aur/bzr-player.sh
 binaries/
