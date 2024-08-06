@@ -22,7 +22,6 @@ bzr2="bzr-player"
 bzr2_path_sys="/usr/share/$bzr2"
 bzr2_path_home="$HOME/.$bzr2"
 
-export WINEDEBUG=-all #TODO
 export WINEPREFIX="$bzr2_path_home/wine"
 export WINEDLLOVERRIDES="mscoree=" # disable mono
 
@@ -36,10 +35,10 @@ if [ ! -d "$WINEPREFIX" ]; then
   mkdir -p "$WINEPREFIX"
 
   # disable wine crash dialog (winetricks nocrashdialog)
-  wine reg add "HKEY_CURRENT_USER\Software\Wine\WineDbg" /v ShowCrashDialog /t REG_DWORD /d 0 /f
+  wine WINEDEBUG=-all reg add "HKEY_CURRENT_USER\Software\Wine\WineDbg" /v ShowCrashDialog /t REG_DWORD /d 0 /f
 
   # disable wine debugger (winetricks autostart_winedbg=disabled)
-  wine reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\AeDebug" /v Debugger /t REG_SZ /d "false" /f
+  wine WINEDEBUG=-all reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\AeDebug" /v Debugger /t REG_SZ /d "false" /f
 
   # --- app data setup ---
   ln -s "$bzr2_path_sys/BZRPlayer.exe" "$bzr2_path_home/$bzr2"
@@ -51,9 +50,8 @@ if [ ! -d "$WINEPREFIX" ]; then
     ln -s "$root_dll" "$bzr2_path_home"
   done
 
-  #  ln -s "$bzr2_path_sys/gm.dls" "$bzr2_path_home"
   ln -s "$bzr2_path_sys/data" "$bzr2_path_home"
-  ln -s "$bzr2_path_sys/platforms" "$bzr2_path_home" #TODO remove
+  ln -s "$bzr2_path_sys/platforms" "$bzr2_path_home"
   # END --- app data setup ---
 
   # --- user data setup ---
@@ -61,5 +59,4 @@ if [ ! -d "$WINEPREFIX" ]; then
   # END --- user data setup ---
 fi
 
-export WINEDEBUG=warn #TODO
 wine "$bzr2_path_home/$bzr2" "$@" &

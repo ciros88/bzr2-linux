@@ -639,7 +639,6 @@ setup_launcher_script() {
 
 set -e
 
-export WINEDEBUG=warn
 export WINEPREFIX="$bzr2_wineprefix_dir"
 export WINEARCH="$winearch"
 export WINEDLLOVERRIDES="mscoree=" # disable mono
