@@ -690,7 +690,7 @@ Exec=$bzr2_launcher %U
 Icon=$bzr2_pkgname
 Terminal=false
 StartupNotify=false
-Categories=AudioVideo;Audio;Player;Music;
+Categories=AudioVideo;Audio;Music;Player;
 MimeType=$desktop_entry_mime_types
 NoDisplay=false
 
