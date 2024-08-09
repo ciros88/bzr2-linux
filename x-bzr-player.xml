@@ -362,9 +362,7 @@
         <comment>Sharp X68000 MDX audio</comment>
         <generic-icon name="audio-x-generic"/>
         <magic>
-            <match type="big16" value="0x0d0a" offset="0:1025">
-                <match type="byte" value="0x1a" offset="2:1026"/>
-            </match>
+            <match type="big32" value="0x0d0a1aFF" mask="0xFFFFFF00" offset="0:1027"/>
         </magic>
         <glob pattern="*.mdx"/>
     </mime-type>
